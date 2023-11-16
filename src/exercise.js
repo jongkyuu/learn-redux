@@ -77,6 +77,7 @@ const listener = () => {
     console.log(state);
 };
 
+// 앞으로 리덕스를 사용할때 subscribe함수는 잘 사용하지 않음.
 const unsubscribe = store.subscribe(listener);
 // 구독을 해제하고 싶을 때는 unsubscribe() 를 호출하면 됩니다.
 
