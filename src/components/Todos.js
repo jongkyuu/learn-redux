@@ -10,15 +10,15 @@ const TodoItemWrapper = styled.li`
         `};
 `;
 
-function TodoItem({ todo, onToggle }) {
+const TodoItem = React.memo(function TodoItem({ todo, onToggle }) {
     return (
         <TodoItemWrapper onClick={() => onToggle(todo.id)} done={todo.done}>
             {todo.text}
         </TodoItemWrapper>
     );
-}
+});
 
-function TodoList({ todos, onToggle }) {
+const TodoList = React.memo(function TodoList({ todos, onToggle }) {
     return (
         <ul>
             {todos.map((todo) => (
@@ -26,7 +26,7 @@ function TodoList({ todos, onToggle }) {
             ))}
         </ul>
     );
-}
+});
 
 function Todos({ todos, onToggle, onCreate }) {
     const [text, setText] = useState("");
@@ -61,4 +61,4 @@ function Todos({ todos, onToggle, onCreate }) {
     );
 }
 
-export default Todos;
+export default React.memo(Todos);
